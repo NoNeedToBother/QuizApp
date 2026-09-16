@@ -2,15 +2,12 @@ package ru.kpfu.itis.quiz.android.config
 
 import android.content.res.Resources
 import android.os.Build
-import com.google.firebase.Firebase
-import com.google.firebase.analytics.analytics
 import org.koin.android.ext.koin.androidContext
 import ru.kpfu.itis.quiz.android.App
 import ru.kpfu.itis.quiz.android.BuildConfig
 import ru.kpfu.itis.quiz.core.CommonKmp
 import ru.kpfu.itis.quiz.core.config.Configuration
 import ru.kpfu.itis.quiz.core.config.PlatformConfiguration
-import ru.kpfu.itis.quiz.android.core.firebase.AndroidFirebaseScreenAnalytics
 
 internal fun App.initCommon() {
     val config = Configuration(
@@ -20,7 +17,6 @@ internal fun App.initCommon() {
             appVersionNumber = BuildConfig.VERSION_CODE.toString(),
             osVersion = Build.VERSION.RELEASE.toString(),
             deviceType = resources.deviceType,
-            analytics = AndroidFirebaseScreenAnalytics(Firebase.analytics)
         ),
         isDebug = BuildConfig.DEBUG,
         isHttpLoggingEnabled = BuildConfig.DEBUG,

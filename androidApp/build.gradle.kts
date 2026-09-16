@@ -2,8 +2,6 @@ plugins {
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.kotlinAndroid)
     alias(libs.plugins.compose.compiler)
-    alias(libs.plugins.googleService)
-    alias(libs.plugins.crashlytics)
 }
 
 android {
@@ -31,11 +29,8 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_17
-        targetCompatibility = JavaVersion.VERSION_17
-    }
-    kotlinOptions {
-        jvmTarget = "17"
+        sourceCompatibility = JavaVersion.VERSION_21
+        targetCompatibility = JavaVersion.VERSION_21
     }
 }
 
@@ -59,9 +54,6 @@ dependencies {
 
     implementation(libs.bundles.koin.common)
     implementation(libs.koin.android)
-
-    implementation(libs.firebase.analytics)
-    implementation(project.dependencies.platform(libs.firebase.bom))
 
     debugImplementation(libs.compose.ui.tooling)
 }
