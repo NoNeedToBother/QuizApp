@@ -15,8 +15,9 @@ class GetQuestionSettingsUseCaseImpl(
             val difficulty = questionSettingsRepository.getDifficulty()
             val category = questionSettingsRepository.getCategory()
             val gameMode = questionSettingsRepository.getGameMode()
+            val locale = questionSettingsRepository.getLocale()
             QuestionSettings(
-                difficulty, category, gameMode
+                difficulty, category, gameMode, locale
             )
         }
     }

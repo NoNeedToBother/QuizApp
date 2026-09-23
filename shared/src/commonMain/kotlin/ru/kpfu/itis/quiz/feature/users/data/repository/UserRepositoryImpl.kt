@@ -5,6 +5,7 @@ import kotlinx.coroutines.IO
 import kotlinx.coroutines.withContext
 import ru.kpfu.itis.quiz.core.database.AppDatabase
 import ru.kpfu.itis.quiz.core.model.User
+import ru.kpfu.itis.quiz.core.util.formatDateWithLocale
 import ru.kpfu.itis.quiz.feature.users.domain.repository.UserRepository
 
 class UserRepositoryImpl(
@@ -24,7 +25,7 @@ class UserRepositoryImpl(
                     username = it.username,
                     profilePictureUri = it.profilePictureUri,
                     info = it.info,
-                    dateRegistered = it.dateRegistered,
+                    dateRegistered = formatDateWithLocale(it.dateRegistered),
                 )
             }
         }

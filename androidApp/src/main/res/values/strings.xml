@@ -6,6 +6,7 @@
     <string name="difficulty">Difficulty</string>
     <string name="category">Category</string>
     <string name="game_mode">Game mode</string>
+    <string name="locale">Locale</string>
     <string name="save">Save</string>
     <string name="edit">Edit</string>
     <string name="res_ratio">Result: %d/%d</string>
@@ -35,6 +36,12 @@
         <item>Blitz</item>
         <item>Challenge</item>
         <item>Expert</item>
+    </string-array>
+    <string-array name="locales">
+        <item>System</item>
+        <item>English (GB)</item>
+        <item>English (US)</item>
+        <item>Russian</item>
     </string-array>
 
     <!-- main -->

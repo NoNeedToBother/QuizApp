@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- common -->
+    <string name="app_name">Квиз</string>
+    <string name="empty"/>
+    <string name="difficulty">Сложность</string>
+    <string name="category">Категория</string>
+    <string name="game_mode">Режим</string>
+    <string name="locale">Локаль</string>
+    <string name="save">Сохранить</string>
+    <string name="edit">Редактировать</string>
+    <string name="res_ratio">Результат: %d/%d</string>
+    <string name="res_difficulty">Сложность: %s</string>
+    <string name="res_category">Категория: %s</string>
+    <string name="res_game_mode">Режим: %s</string>
+    <string name="empty_results">Здесь ничего нет…</string>
+    <string name="toggle">Переключить</string>
+    <string-array name="difficulties">
+        <item>Легкая</item>
+        <item>Средняя</item>
+        <item>Трудная</item>
+    </string-array>
+    <string-array name="categories">
+        <item>Общая</item>
+        <item>Книги</item>
+        <item>Фильмы</item>
+        <item>Музыка</item>
+        <item>ТВ</item>
+        <item>Видеоигры</item>
+        <item>Спорт</item>
+        <item>География</item>
+        <item>История</item>
+        <item>Животные</item>
+    </string-array>
+    <string-array name="game_modes">
+        <item>Блитц</item>
+        <item>Вызов</item>
+        <item>Эксперт</item>
+    </string-array>
+    <string-array name="locales">
+        <item>Системная</item>
+        <item>Английская (ВБ)</item>
+        <item>Английская (США)</item>
+        <item>Русская</item>
+    </string-array>
+
+    <!-- main -->
+    <string name="begin">Начать</string>
+    <string name="question_settings">Настройки вопросов</string>
+    <string name="profile">Профиль</string>
+    <string name="main_menu">Главное меню</string>
+    <string name="leaderboards">Таблица результатов</string>
+    <string name="search_users">Поиск пользователей</string>
+
+    <!-- authentication -->
+    <string name="enter_username">Введите имя пользователя</string>
+    <string name="enter_password">Введите пароль</string>
+    <string name="go_to_register">К регистрации</string>
+    <string name="sign_in">Вход</string>
+    <string name="go_to_sign_in">Ко входу</string>
+    <string name="register">Регистрация</string>
+    <string name="confirm_password">Подтвердить пароль</string>
+    <string name="welcome_user">Добро пожаловать, %s</string>
+    <string name="welcome_back_user">Добро пожаловать снова, %s</string>
+
+    <!-- leaderboards -->
+    <string name="score_default">Результат: %.3f</string>
+    <string name="time_with_min">Время: %02dмин %02dсек</string>
+    <string name="time">Время: %02dсек</string>
+    <string name="any_settings_item">Любой</string>
+    <string-array name="leaderboard_difficulties">
+        <item>Любая</item>
+        <item>Легкая</item>
+        <item>Средняя</item>
+        <item>Трудная</item>
+    </string-array>
+
+    <string-array name="leaderboard_categories">
+        <item>Любая</item>
+        <item>Общая</item>
+        <item>Книги</item>
+        <item>Фильмы</item>
+        <item>Музыка</item>
+        <item>ТВ</item>
+        <item>Видеоигры</item>
+        <item>Спорт</item>
+        <item>География</item>
+        <item>История</item>
+        <item>Животные</item>
+    </string-array>
+
+    <!-- profiles -->
+    <string name="dialog_incorrect_user_data">Некорректные изменения данных пользователя</string>
+    <string name="registration_date">С %s</string>
+    <string name="submit_photo">Выбрать фото</string>
+    <string name="preview">Превью</string>
+    <string name="dialog_pos">Сохранить</string>
+    <string name="dialog_neg">Не сохранять</string>
+    <string name="settings">Настройки пользователя</string>
+    <string name="logout">Выход</string>
+    <string name="username">Имя пользователя</string>
+    <string name="info">Информация</string>
+    <string name="password">Пароль</string>
+    <string name="change_credentials">Изменить данные для входа</string>
+    <string name="confirm_credentials">Подтвердите данные для входа перед тем как продолжить</string>
+    <string name="confirm_dialog_pos">Подтвердить</string>
+    <string name="confirm_dialog_neg">Не подтверждать</string>
+    <string name="stats">Статистика последних результатов</string>
+    <string name="check_stats">Проверить последние результаты</string>
+    <string name="password_confirm_password_not_match">Поля пароля и подтверждения пароля не одинаковы</string>
+    <string name="credentials_change_failed">Предоставьте корректные данные для входа для их успешного изменения</string>
+    <string name="dialog_incorrect_credentials">Некорретные данные для входа</string>
+
+
+    <!-- questions -->
+    <string name="question_num">Вопрос: %d/%d</string>
+    <string name="clock_time_with_min">Время: %02dмин %02dсек</string>
+    <string name="clock_time">Время: %02dсек</string>
+    <string name="end">\u2713 Конец</string>
+    <string name="results">Результаты</string>
+    <string name="res_time">Время: %d</string>
+    <string name="res_score">Результат: %.3f</string>
+</resources>

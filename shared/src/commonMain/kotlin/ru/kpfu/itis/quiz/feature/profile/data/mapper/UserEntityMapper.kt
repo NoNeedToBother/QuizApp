@@ -2,6 +2,7 @@ package ru.kpfu.itis.quiz.feature.profile.data.mapper
 
 import ru.kpfu.itis.quiz.core.database.entity.ResultEntity
 import ru.kpfu.itis.quiz.core.database.entity.UserEntity
+import ru.kpfu.itis.quiz.core.util.formatDateWithLocale
 import ru.kpfu.itis.quiz.feature.profile.domain.model.Result
 import ru.kpfu.itis.quiz.feature.profile.domain.model.User
 import ru.kpfu.itis.quiz.feature.profile.domain.model.UserWithResults
@@ -21,7 +22,7 @@ private fun mapUserEntity(entity: UserEntity): User {
         username = entity.username,
         profilePictureUri = entity.profilePictureUri,
         info = entity.info,
-        dateRegistered = entity.dateRegistered,
+        dateRegistered = formatDateWithLocale(entity.dateRegistered),
     )
 }
 

@@ -14,7 +14,7 @@ data class UserEntity(
     val profilePictureUri: String = "",
     val info: String = "",
     @ColumnInfo(name = "date_registered")
-    val dateRegistered: String,
+    val dateRegistered: Int,
     @ColumnInfo(name = "signed_in")
     val isSignedIn: Boolean = false,
 )

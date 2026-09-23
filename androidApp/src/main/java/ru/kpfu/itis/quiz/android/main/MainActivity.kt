@@ -1,6 +1,8 @@
 package ru.kpfu.itis.quiz.android.main
 
 import android.annotation.SuppressLint
+import android.content.Context
+import android.content.res.Configuration
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -34,6 +36,8 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import kotlinx.coroutines.flow.collectLatest
+import kotlinx.coroutines.runBlocking
+import org.koin.android.ext.android.get
 import ru.kpfu.itis.quiz.android.R
 import ru.kpfu.itis.quiz.android.core.designsystem.theme.AppTheme
 import ru.kpfu.itis.quiz.android.feature.auth.presentation.login.SignInScreen
@@ -45,6 +49,10 @@ import ru.kpfu.itis.quiz.android.feature.profile.presentation.ui.screens.Profile
 import ru.kpfu.itis.quiz.android.feature.questions.presentation.questions.ui.screens.QuestionsScreen
 import ru.kpfu.itis.quiz.android.feature.questions.presentation.settings.ui.screens.QuestionSettingsScreen
 import ru.kpfu.itis.quiz.android.feature.users.presentation.ui.screens.SearchUsersScreen
+import ru.kpfu.itis.quiz.core.util.AppLocale
+import ru.kpfu.itis.quiz.core.util.currentLocale
+import ru.kpfu.itis.quiz.feature.questions.domain.repository.QuestionSettingsRepository
+import java.util.Locale
 
 data class TopLevelRoute(val name: String, val route: String, val icon: ImageVector)
 
@@ -53,7 +61,6 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
 
         enableEdgeToEdge()
-
         setContent {
             AppTheme {
                 val topLevelRoutes = listOf(
@@ -81,6 +88,24 @@ class MainActivity : ComponentActivity() {
             }
         }
     }
+
+    override fun attachBaseContext(newBase: Context) {
+        val repository = get<QuestionSettingsRepository>()
+
+        val locale = runBlocking { repository.getLocale() }
+        currentLocale = locale
+        val javaLocale = when (locale) {
+            AppLocale.SYSTEM -> Locale.getDefault()
+            AppLocale.EN_GB -> Locale("en", "GB")
+            AppLocale.EN_US -> Locale("en", "US")
+            AppLocale.RU -> Locale("ru", "RU")
+        }
+
+        val config = Configuration(newBase.resources.configuration)
+        config.setLocale(javaLocale)
+        super.attachBaseContext(newBase.createConfigurationContext(config))
+    }
+
 }
 
 @SuppressLint("RestrictedApi")

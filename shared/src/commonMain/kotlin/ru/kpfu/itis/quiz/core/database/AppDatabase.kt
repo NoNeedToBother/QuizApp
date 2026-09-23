@@ -12,7 +12,8 @@ import ru.kpfu.itis.quiz.core.database.entity.UserEntity
 
 @Database(
     entities = [UserEntity::class, ResultEntity::class],
-    version = 1
+    version = 2,
+    exportSchema = true
 )
 @ConstructedBy(AppDatabaseConstructor::class)
 abstract class AppDatabase : RoomDatabase() {

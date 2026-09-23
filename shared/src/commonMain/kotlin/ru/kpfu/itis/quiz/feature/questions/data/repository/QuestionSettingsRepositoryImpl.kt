@@ -4,6 +4,7 @@ import com.russhwolf.settings.Settings
 import ru.kpfu.itis.quiz.core.model.Category
 import ru.kpfu.itis.quiz.core.model.Difficulty
 import ru.kpfu.itis.quiz.core.model.GameMode
+import ru.kpfu.itis.quiz.core.util.AppLocale
 import ru.kpfu.itis.quiz.core.util.toEnumName
 import ru.kpfu.itis.quiz.feature.questions.domain.repository.QuestionSettingsRepository
 
@@ -38,6 +39,15 @@ internal class QuestionSettingsRepositoryImpl(
         saveString(GAME_MODE_KEY, gameMode.name)
     }
 
+    override fun getLocale(): AppLocale {
+        return getString(LOCALE_KEY)?.let { AppLocale.valueOf(it.toEnumName()) }
+            ?: getDefaultLocale()
+    }
+
+    override fun saveLocale(locale: AppLocale) {
+        saveString(LOCALE_KEY, locale.name)
+    }
+
     private fun getString(key: String): String? {
         return settings.getStringOrNull(key)
     }
@@ -52,9 +62,12 @@ internal class QuestionSettingsRepositoryImpl(
 
     private fun getDefaultGameMode(): GameMode = GameMode.BLITZ
 
+    private fun getDefaultLocale(): AppLocale = AppLocale.SYSTEM
+
     companion object {
         private const val CATEGORY_KEY = "category"
         private const val DIFFICULTY_KEY = "difficulty"
         private const val GAME_MODE_KEY = "game_mode"
+        private const val LOCALE_KEY = "locale"
     }
 }

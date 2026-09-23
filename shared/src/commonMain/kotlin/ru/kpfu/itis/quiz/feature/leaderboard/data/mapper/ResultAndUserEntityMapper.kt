@@ -6,6 +6,7 @@ import ru.kpfu.itis.quiz.core.model.Difficulty
 import ru.kpfu.itis.quiz.core.model.GameMode
 import ru.kpfu.itis.quiz.core.model.Result
 import ru.kpfu.itis.quiz.core.model.User
+import ru.kpfu.itis.quiz.core.util.formatDateWithLocale
 import ru.kpfu.itis.quiz.core.util.toEnumName
 
 fun mapResultAndUserEntity(entity: ResultAndUser): Result {
@@ -14,7 +15,7 @@ fun mapResultAndUserEntity(entity: ResultAndUser): Result {
         username = entity.user.username,
         profilePictureUri = entity.user.profilePictureUri,
         info = entity.user.info,
-        dateRegistered = entity.user.dateRegistered
+        dateRegistered = formatDateWithLocale(entity.user.dateRegistered)
     )
 
     return with(entity.result) {
@@ -25,7 +26,6 @@ fun mapResultAndUserEntity(entity: ResultAndUser): Result {
             correct = correct,
             total = total,
             score = score,
-            //date = entity.result.da,
             difficulty = Difficulty.valueOf(difficulty.toEnumName()),
             category = Category.valueOf(category.toEnumName()),
             gameMode = GameMode.valueOf(gameMode.toEnumName())

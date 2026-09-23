@@ -1,8 +1,8 @@
 package ru.kpfu.itis.quiz.feature.authentication.data.repository
 
-import kotlinx.datetime.Clock.System.now
+import kotlinx.datetime.Clock
 import kotlinx.datetime.TimeZone
-import kotlinx.datetime.toLocalDateTime
+import kotlinx.datetime.todayIn
 import ru.kpfu.itis.quiz.core.database.AppDatabase
 import ru.kpfu.itis.quiz.core.database.entity.UserEntity
 import ru.kpfu.itis.quiz.core.model.User
@@ -17,11 +17,11 @@ internal class AuthenticationRepositoryImpl(
     override suspend fun register(username: String, password: String, confirmPassword: String): Boolean {
         val dao = appDatabase.userDao()
 
-        val registerDate = now().toLocalDateTime(TimeZone.currentSystemDefault())
+        val registerDate = Clock.System.todayIn(TimeZone.currentSystemDefault())
         val userEntity = UserEntity(
             username = username,
             password = password.encrypt(),
-            dateRegistered = "${registerDate.dayOfMonth}/${registerDate.month}/${registerDate.year}",
+            dateRegistered = registerDate.toEpochDays(),
             isSignedIn = true
         )
         return dao.save(userEntity) != -1L

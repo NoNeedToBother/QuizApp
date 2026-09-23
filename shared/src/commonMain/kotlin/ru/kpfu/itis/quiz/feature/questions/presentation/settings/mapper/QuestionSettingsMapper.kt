@@ -8,5 +8,6 @@ fun mapQuestionSettings(settings: CommonQuestionSettings): QuestionSettings {
         difficulty = settings.difficulty,
         category = settings.category,
         gameMode = settings.gameMode,
+        locale = settings.locale,
     )
 }

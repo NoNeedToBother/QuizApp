@@ -16,6 +16,7 @@ val databaseModule = module {
         val configuration: Configuration = get()
 
         factory.getDatabaseBuilder(configuration)
+            .addMigrations(MIGRATION_1_2)
             .setDriver(BundledSQLiteDriver())
             .setQueryCoroutineContext(Dispatchers.IO)
             .build()

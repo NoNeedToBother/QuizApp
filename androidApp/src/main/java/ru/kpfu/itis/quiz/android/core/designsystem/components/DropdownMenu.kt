@@ -21,7 +21,7 @@ fun DropdownMenu(
     value: String,
     suggestions: List<String>,
     label: String,
-    onChosen: (String) -> Unit
+    onChosen: (Int) -> Unit
 ) {
     var expanded by remember { mutableStateOf(false) }
 
@@ -43,11 +43,11 @@ fun DropdownMenu(
             expanded = expanded,
             onDismissRequest = { expanded = false }
         ) {
-            suggestions.forEach { suggestion ->
+            suggestions.forEachIndexed { index, suggestion ->
                 DropdownMenuItem(
                     text = { Text(suggestion) },
                     onClick = {
-                        onChosen(suggestion)
+                        onChosen(index)
                     }
                 )
             }
